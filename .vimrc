@@ -259,4 +259,3 @@ endfunction
 
 let autoreadargs={'autoread':1} 
 execute WatchForChanges("*",autoreadargs) 
-
