@@ -11,6 +11,9 @@ set expandtab
 " set backupdir=$HOME/tmp,.
 " set directory=$HOME/tmp,.
 
+let g:airline_powerline_fonts = 1
+set noshowmode " when using airline, the -- INSERT -- message is not needed
+
 :autocmd CursorMoved * highlight UnderCursor ctermbg=235
 :autocmd CursorMoved * exe printf('match UnderCursor /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
