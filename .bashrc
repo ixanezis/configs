@@ -17,6 +17,10 @@ HISTSIZE="" # unlimited bash history
 HISTFILESIZE="" # unlimited bash history
 export HISTTIMEFORMAT='%F %T '
 
+# to correctly work with remote hosts
+#export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -85,10 +89,22 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
+export LSCOLORS=Gxfxcxdxbxegedabagacad
+alias ls='gls --color=auto'
+eval $(gdircolors ~/dircolors-solarized/dircolors.256dark)
+
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+export GRADLE_OPTS=-Dorg.gradle.daemon=true
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+export QT_HOME=/usr/local/opt/qt52
+export ANDROID_HOME=/Users/ixanezis/android-sdk-macosx
+export ANDROID_NDK=/Users/ixanezis/android-ndk-r10d
+#add adb to path
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -106,7 +122,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-alias ff='ls -Ahl'
+source $(brew --prefix)/etc/bash_completion
+
+alias ff='ls -GAhl'
 alias f='ff'
 alias v='vim -X'
 alias vs='v'
@@ -147,6 +165,7 @@ if [ "$GPG_INSTALLED" = "yes" ]; then
     GPG_TTY=$(tty)
     export GPG_TTY
 fi
+mkdir -p ~/.vim/undodir
 
 # Predictable SSH authentication socket location.
 SOCK="$HOME/.ssh/ssh_auth_sock"
@@ -256,3 +275,4 @@ function complete_host {
 }
 
 complete -F complete_host ssh
+[ -e $HOME/sshp.sh ] && source $HOME/sshp.sh

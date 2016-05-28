@@ -11,8 +11,8 @@ set expandtab
 " set backupdir=$HOME/tmp,.
 " set directory=$HOME/tmp,.
 
-let g:airline_powerline_fonts = 1
-set noshowmode " when using airline, the -- INSERT -- message is not needed
+set undofile
+set undodir=~/.vim/undodir
 
 :autocmd CursorMoved * highlight UnderCursor ctermbg=235
 :autocmd CursorMoved * exe printf('match UnderCursor /\V\<%s\>/', escape(expand('<cword>'), '/\'))
@@ -41,8 +41,9 @@ map <leader>p :set paste!<CR>
 map <leader>t :set et!<CR>
 
 " shortcuts to make program
-"set makeprg=g++-4.4\ -fopenmp\ -O2\ --std=c++0x\ -Wall\ -Wno-unused-result\ -o\ %:r\ %
-set makeprg=make
+"set makeprg=c++\ -DDEBUG\ -O2\ --std=c++14\ -Wall\ -Wno-unused-result\ -o\ %:r\ %
+set makeprg=g++-4.9\ -DDEBUG\ -O2\ --std=c++1y\ -Wall\ -Wno-unused-result\ -o\ %:r\ %
+"set makeprg=make
 map <C-B> :w<CR>:make<CR>
 imap <C-B> <ESC>:w<CR>:make<CR>
 
