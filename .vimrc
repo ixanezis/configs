@@ -12,7 +12,7 @@ set expandtab
 " set directory=$HOME/tmp,.
 
 set undofile
-set undodir=~/.vim/undodir
+set undodir=~/.vim-undodir
 
 :autocmd CursorMoved * highlight UnderCursor ctermbg=235
 :autocmd CursorMoved * exe printf('match UnderCursor /\V\<%s\>/', escape(expand('<cword>'), '/\'))

@@ -89,6 +89,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+mkdir -p "$HOME/.vim-undodir"
+
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 alias ls='gls --color=auto'
 eval $(gdircolors ~/dircolors-solarized/dircolors.256dark)
@@ -138,19 +140,7 @@ export DEBFULLNAME="Sergei Zhgirovski"
 export DEBEMAIL="ixanezis@yandex-team.ru"
 alias dch='dch --distributor=debian'
 
-alias cdl='cd /home/ixanezis/mapscore/masstransit/lib/'
-alias cdli='cd /home/ixanezis/mapscore/masstransit/lib/include/yandex/maps/masstransit/'
-alias cdr='cd /home/ixanezis/mapscore/masstransit/router/'
-alias cdp='pushd /home/ixanezis/mapscore/masstransit/pedestrian_graph/'
-alias i='pushd ~/mapscore/masstransit/info'
-alias le='pushd /home/ixanezis/mapscore/routing/leptidea-connector'
-alias s='pushd ~/mapscore/jams/aggregation/scripts'
-alias h='pushd ~/mapscore/hotspots/spotsvis'
-alias t='pushd ~/mapscore/jams/tools/draw-prognosis'
-alias r='pushd ~/mapscore/masstransit/quality2 >/dev/null'
-alias z='pushd ~/mapscore/jams/visualization/configs/fastcgi-prognosis'
-alias j='pushd ~/mapscore/fastcgi/tilerenderer-serv/hotspots/jams'
-alias p='pushd ~/mapscore/pymod/yandex/maps/poi'
+alias ssh='ssh -A'
 alias ☃='sl -a'
 python ~/colorize.py 0.7 0.44
 
