@@ -138,15 +138,12 @@ python ~/colorize.py 0.7 0.44
 
 set show-all-if-ambiguous on
 
-#gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info"
-#if [ -f "${HOME}/.gpg-agent-info" ]; then
-    #. "${HOME}/.gpg-agent-info"
-    #export GPG_AGENT_INFO
-    #export SSH_AUTH_SOCK
-    #export SSH_AGENT_PID
-#fi
-#GPG_TTY=$(tty)
-#export GPG_TTY
+GPG_RUNNING=true
+source "${HOME}/.gpg-agent-info" 2>/dev/null && GPG_AGENT_INFO=$GPG_AGENT_INFO gpg-connect-agent /bye 2>/dev/null || GPG_RUNNING=false
+[ $GPG_RUNNING = true ] || eval $(gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info")
+export GPG_AGENT_INFO
+GPG_TTY=$(tty)
+export GPG_TTY
 
 # Predictable SSH authentication socket location.
 SOCK="$HOME/.ssh/ssh_auth_sock"
@@ -244,3 +241,15 @@ function before_command_execution() {
     fi
 }
 trap 'before_command_execution' DEBUG
+
+function complete_host {
+    COMPREPLY=()
+
+    if [[ ${COMP_CWORD} == 1 ]] ; then
+        cur="${COMP_WORDS[COMP_CWORD]}"
+        COMPREPLY=( $(compgen -W "$(curl -s https://c.yandex-team.ru/api/groups2hosts/maps_all)" -- ${cur}) )
+        return 0
+    fi
+}
+
+complete -F complete_host ssh
