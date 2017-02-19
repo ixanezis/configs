@@ -104,7 +104,7 @@ export GRADLE_OPTS=-Dorg.gradle.daemon=true
 export JAVA_HOME=$(/usr/libexec/java_home)
 export QT_HOME=/usr/local/opt/qt52
 export ANDROID_HOME=/Users/ixanezis/android-sdk-macosx
-export ANDROID_NDK=/Users/ixanezis/android-ndk-r10d
+export ANDROID_NDK=/Users/ixanezis/android-sdk-macosx/ndk-bundle
 #add adb to path
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
@@ -266,3 +266,9 @@ function complete_host {
 
 complete -F complete_host ssh
 [ -e $HOME/sshp.sh ] && source $HOME/sshp.sh
+
+PATH="/Users/ixanezis/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/ixanezis/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/ixanezis/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/ixanezis/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/ixanezis/perl5"; export PERL_MM_OPT;
