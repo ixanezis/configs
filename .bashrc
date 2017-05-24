@@ -102,7 +102,7 @@ alias l='ls -CF'
 export GRADLE_OPTS=-Dorg.gradle.daemon=true
 
 export JAVA_HOME=$(/usr/libexec/java_home)
-export QT_HOME=/usr/local/opt/qt52
+export QT_HOME=/usr/local/opt/qt@5.8
 export ANDROID_HOME=/Users/ixanezis/android-sdk-macosx
 export ANDROID_NDK=/Users/ixanezis/android-sdk-macosx/ndk-bundle
 #add adb to path
