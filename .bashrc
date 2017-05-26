@@ -138,12 +138,15 @@ python ~/colorize.py 0.7 0.44
 
 set show-all-if-ambiguous on
 
-GPG_RUNNING=true
-source "${HOME}/.gpg-agent-info" 2>/dev/null && GPG_AGENT_INFO=$GPG_AGENT_INFO gpg-connect-agent /bye 2>/dev/null || GPG_RUNNING=false
-[ $GPG_RUNNING = true ] || eval $(gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info")
-export GPG_AGENT_INFO
-GPG_TTY=$(tty)
-export GPG_TTY
+GPG_INSTALLED=$(type gpg-agent 2>/dev/null && echo yes || echo no)
+if [ "$GPG_INSTALLED" = "yes" ]; then
+    GPG_RUNNING=true
+    source "${HOME}/.gpg-agent-info" 2>/dev/null && GPG_AGENT_INFO=$GPG_AGENT_INFO gpg-connect-agent /bye 2>/dev/null || GPG_RUNNING=false
+    [ $GPG_RUNNING = true ] || eval $(gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info")
+    export GPG_AGENT_INFO
+    GPG_TTY=$(tty)
+    export GPG_TTY
+fi
 
 # Predictable SSH authentication socket location.
 SOCK="$HOME/.ssh/ssh_auth_sock"
