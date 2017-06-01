@@ -92,8 +92,10 @@ fi
 mkdir -p "$HOME/.vim-undodir"
 
 export LSCOLORS=Gxfxcxdxbxegedabagacad
-alias ls='gls --color=auto'
-eval $(gdircolors ~/dircolors-solarized/dircolors.256dark)
+if [ $(uname -s) = "Darwin" ]; then
+    alias ls='gls --color=auto'
+    eval $(gdircolors ~/dircolors-solarized/dircolors.256dark)
+fi
 
 export GRADLE_OPTS=-Dorg.gradle.daemon=true
 
