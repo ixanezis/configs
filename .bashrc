@@ -82,6 +82,7 @@ if [ $(uname -s) = "Darwin" ]; then
     alias ls='gls --color=auto'
     eval $(gdircolors ~/dircolors-solarized/dircolors.256dark)
     source $(brew --prefix)/etc/bash_completion
+    source $(brew --prefix)/git/contrib/completion/git-completion.bash
 fi
 
 export GRADLE_OPTS=-Dorg.gradle.daemon=true
