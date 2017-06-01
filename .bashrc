@@ -95,18 +95,9 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 alias ls='gls --color=auto'
 eval $(gdircolors ~/dircolors-solarized/dircolors.256dark)
 
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 export GRADLE_OPTS=-Dorg.gradle.daemon=true
 
 export JAVA_HOME=$(/usr/libexec/java_home)
-export QT_HOME=/usr/local/opt/qt@5.8
-export ANDROID_HOME=/Users/ixanezis/android-sdk-macosx
-export ANDROID_NDK=/Users/ixanezis/android-sdk-macosx/ndk-bundle
-#add adb to path
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -126,22 +117,6 @@ fi
 
 source $(brew --prefix)/etc/bash_completion
 
-alias ff='ls -GAhl'
-alias f='ff'
-alias v='vim -X'
-alias vs='v'
-alias tt="tmux -u attach -d || tmux -u"
-alias dupload="dupload --nomail"
-alias psql="PAGER=less LESS='-iMSx4 -FX' psql"
-
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-export DEBFULLNAME="Sergei Zhgirovski"
-export DEBEMAIL="ixanezis@yandex-team.ru"
-alias dch='dch --distributor=debian'
-
-alias ssh='ssh -A'
-alias ☃='sl -a'
 python ~/colorize.py 0.7 0.44
 
 set show-all-if-ambiguous on
@@ -184,12 +159,6 @@ function policy {
     else
         apt-cache policy $pkg | head -n 20
     fi
-}
-alias po=policy
-
-# alias gitdiff='git diff | /home/ixanezis/linenum.py'
-function gitdiff {
-    git diff $* | /home/ixanezis/linenum.py
 }
 
 # xterm-256 color control sequences
