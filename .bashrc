@@ -95,11 +95,10 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 if [ $(uname -s) = "Darwin" ]; then
     alias ls='gls --color=auto'
     eval $(gdircolors ~/dircolors-solarized/dircolors.256dark)
+    source $(brew --prefix)/etc/bash_completion
 fi
 
 export GRADLE_OPTS=-Dorg.gradle.daemon=true
-
-export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -116,8 +115,6 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-source $(brew --prefix)/etc/bash_completion
 
 python ~/colorize.py 0.7 0.44
 
