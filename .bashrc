@@ -57,10 +57,12 @@ fi
 unset color_prompt force_color_prompt
 
 tmux_pane() {
-    hostname=$(hostname)
-    hostname_prefix=${hostname%%.*}
-    basename=$(basename $(pwd))
-    printf "\033k$hostname_prefix:$basename\033\\"
+    if [ "$TMUX" ]; then
+        hostname=$(hostname)
+        hostname_prefix=${hostname%%.*}
+        basename=$(basename $(pwd))
+        printf "\033k$basename\033\\"
+    fi
 }
 
 # enable color support of ls and also add handy aliases
