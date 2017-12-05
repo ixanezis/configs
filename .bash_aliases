@@ -14,7 +14,6 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export DEBFULLNAME="Sergei Zhgirovski"
 export DEBEMAIL="ixanezis@yandex-team.ru"
-alias dch='dch --distributor=debian'
 
 alias ssh='ssh -A'
 alias ☃='sl -a'
