@@ -85,6 +85,7 @@ if [ $(uname -s) = "Darwin" ]; then
     eval $(gdircolors ~/dircolors-solarized/dircolors.256dark)
     source $(brew --prefix)/etc/bash_completion
     source $(brew --prefix git)/share/zsh/site-functions/git-completion.bash
+    source $(brew --prefix)/etc/bash_completion.d/pass
 fi
 
 export GRADLE_OPTS=-Dorg.gradle.daemon=true
