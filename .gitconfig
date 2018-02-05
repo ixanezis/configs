@@ -21,6 +21,7 @@
 	root = !pwd
 	ar = !git add -u `git root`
     stu = status -uno
+	pp = !sh -c 'git push origin HEAD:f/$(git log --oneline -1 | grep -oe \"SDC-[0-9]\\+\")-$(git rev-parse --abbrev-ref HEAD)'
 [push]
 	default = current
 [filter "lfs"]
