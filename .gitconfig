@@ -22,6 +22,8 @@
 	ar = !git add -u `git root`
     stu = status -uno
 	pp = !sh -c 'git push -u origin HEAD:f/$(git log --oneline -1 | grep -oe \"SDC-[0-9]\\+\")-$(git rev-parse --abbrev-ref HEAD)'
+	logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	g = grep --break --heading --line-number
 [push]
 	default = upstream
 [filter "lfs"]
@@ -29,3 +31,6 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[grep]
+	extendRegexp = true
+	lineNumber = true
