@@ -34,3 +34,8 @@
 [grep]
 	extendRegexp = true
 	lineNumber = true
+[merge]
+	renameLimit = 22222
+	tool = vimdiff
+[diff]
+	renameLimit = 22222
