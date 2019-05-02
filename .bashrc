@@ -208,19 +208,6 @@ function before_command_execution() {
 }
 trap 'before_command_execution' DEBUG
 
-function complete_host {
-    COMPREPLY=()
-
-    if [[ ${COMP_CWORD} == 1 ]] ; then
-        cur="${COMP_WORDS[COMP_CWORD]}"
-        COMPREPLY=( $(compgen -W "$(curl -s https://c.yandex-team.ru/api/groups2hosts/maps_all)" -- ${cur}) )
-        return 0
-    fi
-}
-
-complete -F complete_host ssh
-[ -e $HOME/sshp.sh ] && source $HOME/sshp.sh
-
 PATH="/Users/ixanezis/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/Users/ixanezis/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/Users/ixanezis/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
