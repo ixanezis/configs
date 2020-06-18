@@ -9,3 +9,4 @@ git submodule foreach --recursive '[ -f .git ] && echo "gitdir: $(realpath --rel
 cd $HOME
 mv $HOME/configs/* $HOME/
 rm -rf $HOME/configs
+vim +PluginInstall +qall

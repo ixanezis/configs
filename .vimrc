@@ -7,12 +7,40 @@ set mouse=a
 set incsearch
 set hlsearch
 set expandtab
+syntax on
 
 set undofile
-set undodir=~/.vim-undodir
+set undodir=~/.vim/undodir
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" -------- Vundle -------
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'ratazzi/blackboard.vim.git'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" -------- Vundle -------
 
 " shortcuts to make program
-set makeprg=g++-4.9\ -DDEBUG\ -O2\ -fopenmp\ --std=c++14\ -Wall\ -Wno-unused-result\ -o\ %:r\ %
+set makeprg=g++\ -DDEBUG\ -O2\ --std=c++14\ -Wall\ -Wno-unused-result\ -Wno-char-subscripts\ -o\ %:r\ %
 "set makeprg=./run.sh
 "set makeprg=g++-4.9\ -DDEBUG\ -O2\ --std=c++1y\ -Wall\ -Wno-unused-result\ -I/usr/local/include\ -L/usr/local/lib\ -lboost_unit_test_framework\ -o\ %:r\ %
 "set makeprg=make
@@ -23,9 +51,6 @@ map <F5> :xa<cr>
 imap <F5> <ESC>:xa<cr>
 
 :map <F9> "qdt,dwep"qpB
-
-execute pathogen#infect()
-filetype plugin indent on
 
 colorscheme blackboard
 
