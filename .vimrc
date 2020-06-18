@@ -52,7 +52,11 @@ imap <F5> <ESC>:xa<cr>
 
 :map <F9> "qdt,dwep"qpB
 
-colorscheme blackboard
+try
+    colorscheme blackboard
+catch /^Vim\%((\a\+)\)\=:E185/
+    " this must be something like the first vim invokation, ignore absent scheme
+endtry
 
 " disable comments insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
