@@ -103,7 +103,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-python ~/colorize.py 0.7 0.44
+python ~/colorize.py 0.7 0.44 2>/dev/null || python3 ~/colorize.py 0.7 0.44 2>/dev/null || true
 
 set show-all-if-ambiguous on
 
